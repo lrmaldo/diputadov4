@@ -1,4 +1,4 @@
-<?php namespace App\Events;
+<?php namespace irineomolina\Events;
 
 abstract class Event {
 

@@ -1,4 +1,4 @@
-<?php namespace App;
+<?php namespace irineomolina;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
@@ -16,6 +16,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 * @var string
 	 */
 	protected $table = 'users';
+	public $timestamps = false;
 
 	/**
 	 * The attributes that are mass assignable.
