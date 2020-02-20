@@ -11,11 +11,6 @@
 |post get put delete
 */
 
-Route::get('controlador','PruebaController@index');
-Route::get('controlador/{nombre}','PruebaController@nombre');
-Route::get('prueba',function(){
-	return "hola router";
-});
 
 //frontend de la pagina 
 Route::get('/','FrontController@index');
@@ -23,13 +18,24 @@ Route::get('/contacto','FrontController@contacto');
 
 //controlador de usuarios
 Route::resource('usuario','UsuarioController');
+Route::post('/usuario/store','UsuarioController@store');
 
+//Route::post('/usuario/update','UsuarioController@update');
+//Router::post('/usuario/edit','UsuarioController@edit');
+//controlador de dashboard
 Route::resource('dashboard','DashboardController');
 Route::get("/login",'DashboardController@login');
+
+
 //Route::post('dashboard/entrar', 'DashboardController@entrar');
 
 
 
+//controlador de mail
+//Route::resource('mail','MailController');
+
+//EMAIL configuracion de envio de formulario contacto
+Route::post("/mail/store","MailController@store");
 /*
 Route::get('/', 'WelcomeController@index');
 

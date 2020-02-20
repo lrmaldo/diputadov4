@@ -2,8 +2,12 @@
 
 use irineomolina\Http\Requests;
 use irineomolina\Http\Controllers\Controller;
+use Illuminate\Support\Farcades\Session;
+
+use Collective\Html\FormFacade;
 
 use Illuminate\Http\Request;
+use Redirect;
 
 class UsuarioController extends Controller {
 
@@ -14,7 +18,9 @@ class UsuarioController extends Controller {
 	 */
 	public function index()
 	{
-		return view('usuario.create');
+
+		$users = \irineomolina\User::All();
+		return view('usuario.index',compact('users'));
 	}
 
 	/**
@@ -24,7 +30,7 @@ class UsuarioController extends Controller {
 	 */
 	public function create()
 	{
-		//
+		return view('usuario.create');
 	}
 
 	/**
@@ -32,9 +38,15 @@ class UsuarioController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(Request $request)
 	{
-		//
+		\irineomolina\User::create([
+			'name'=> $request->input('name'),
+			'email'=>$request->input('email'),
+			'password'=>bcrypt($request->input('password')),
+		]);
+		Session::flash('message','Usuario registrado correctamente');
+		return redirect('/usuario')->with('message',"store");
 	}
 
 	/**
@@ -56,7 +68,8 @@ class UsuarioController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+		$user = \irineomolina\User::find($id);
+		return view('usuario.edit',['user' => $user]);
 	}
 
 	/**
@@ -65,9 +78,18 @@ class UsuarioController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update( $id,Request $request)
+
 	{
-		//
+		$user =	\irineomolina\User::find($id);
+		$user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = bcrypt($request->password);
+		
+		//$user->fill($request-> all());
+		$user->save();
+		
+		return  Redirect::to('/usuario');
 	}
 
 	/**
@@ -78,7 +100,8 @@ class UsuarioController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		//
+		\irineomolina\User::destroy($id);
+		return  Redirect::to('/usuario');
 	}
 
 }

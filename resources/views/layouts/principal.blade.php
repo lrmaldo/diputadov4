@@ -1,3 +1,5 @@
+ 
+ 
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,7 +10,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>One Page Wonder - Start Bootstrap Template</title>
+  <title>DiME</title>
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -37,7 +39,7 @@
             <a class="nav-link" href="{{ url('/') }}">Inicio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ url('contacto') }}">contacto</a>
+            <a class="nav-link" href="{{ url('contacto') }}">Contacto</a>
           </li>
         </ul>
       </div>
@@ -48,8 +50,8 @@
     <div class="masthead-content">
       <div class="container">
         <h1 class="masthead-heading mb-0">DiME</h1>
-        <h2 class="masthead-subheading mb-0">IRINEO MOLINA ESPINOZA</h2>
-        <a href="#" class="btn btn-primary btn-xl rounded-pill mt-5">Learn More</a>
+        <h2 class="masthead-subheading mb-0">Irineo Molina Espinoza</h2>
+        <!--a href="#" class="btn btn-primary btn-xl rounded-pill mt-5">Learn More</a-->
       </div>
     </div>
     <div class="bg-circle-1 bg-circle"></div>
@@ -57,13 +59,13 @@
     <div class="bg-circle-3 bg-circle"></div>
     <div class="bg-circle-4 bg-circle"></div>
   </header>
- <!--contenido -->
+
   @yield('content')
 
   <!-- Footer -->
   <footer class="py-5 bg-black">
     <div class="container">
-      <p class="m-0 text-center text-white small">Copyright &copy; Your Website 2019</p>
+      <p class="m-0 text-center text-white small">Copyright &copy; DiME 2019</p>
     </div>
     <!-- /.container -->
   </footer>
@@ -75,8 +77,3 @@
 </body>
 
 </html>
-
-
-  
-
-
